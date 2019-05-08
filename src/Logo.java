@@ -6,10 +6,7 @@ public class Logo {
     }
     public void printOnConsole(int input) {
         if(verify(input)) {
-            int addTwo = 1;
-            int removeTwo = (input * 2) - 1;
             for (int i = 0; i < (input + 1) / 2; i++) { // splitting the logo horizontally at the middle
-
                 //Upper left side of M
                 printLogo("-", input - i);
                 printLogo("*", input + i * 2);
@@ -25,25 +22,28 @@ public class Logo {
                 System.out.println();
             }
             for (int i = (input + 1) / 2; i <= input; i++) {
+//                int addTwo = 1;
+//                int removeTwo = (input * 2) - 1;
+                //at first I couldn't come with a formula for adding by 2 and removing 2 so I used those variables
                 //Lower left side of M
                 printLogo("-", input - i);
                 printLogo("*", input);
-                printLogo("-", addTwo);
-                printLogo("*", removeTwo);
-                printLogo("-", addTwo);
+                printLogo("-", (i - (input + 1) / 2) * 2 + 1); // addTwo
+                printLogo("*", ((input * 2) - 1) - (i - (input + 1) / 2) * 2); // removeTwo
+                printLogo("-", (i - (input + 1) / 2) * 2 + 1); // addTwo
                 printLogo("*", input);
                 printLogo("-", input - i);
                 //Lower right side of M
                 printLogo("-", input - i);
                 printLogo("*", input);
-                printLogo("-", addTwo);
-                printLogo("*", removeTwo);
-                printLogo("-", addTwo);
+                printLogo("-", (i - (input + 1) / 2) * 2 + 1);
+                printLogo("*", ((input * 2) - 1) - (i - (input + 1) / 2) * 2);
+                printLogo("-", (i - (input + 1) / 2) * 2 + 1);
                 printLogo("*", input);
                 printLogo("-", input - i);
                 System.out.println();
-                addTwo += 2;
-                removeTwo -= 2;
+//                addTwo += 2;
+//                removeTwo -= 2;
             }
         }
     }
